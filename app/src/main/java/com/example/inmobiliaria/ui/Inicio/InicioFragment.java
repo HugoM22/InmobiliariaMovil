@@ -13,11 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.inmobiliaria.R;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class InicioFragment extends Fragment {
 
     private InicioViewModel mViewModel;
-
+    private GoogleMap mapa;
+    private static final LatLng ULP = new LatLng(-33.150720,-66.306864);
     public static InicioFragment newInstance() {
         return new InicioFragment();
     }
@@ -32,7 +38,18 @@ public class InicioFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(InicioViewModel.class);
-        // TODO: Use the ViewModel
+
+        // SOLO ESTAS DOS LÍNEAS (sin if, sin extras)
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(new MapaActual());
+    }
+    private class MapaActual implements OnMapReadyCallback{
+        @Override
+        public void onMapReady(@NonNull GoogleMap googleMap) {
+            mapa=googleMap;
+            mapa.addMarker(new MarkerOptions().position(ULP)).setTitle("Inmobiliaria ULP");
+        }
     }
 
 }
