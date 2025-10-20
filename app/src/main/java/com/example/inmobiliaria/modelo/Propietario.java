@@ -5,27 +5,33 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Propietario implements Serializable {
-    @SerializedName("id") private int id;
-    @SerializedName("dni") private int dni;
-    @SerializedName("nombre") private String nombre;
-    @SerializedName("apellido") private String apellido;
-    @SerializedName("email") private String email;
-    @SerializedName("tel") private String tel;
+    private int idPropietario;
+    private String nombre;
+    private String apellido;
+    private String dni;
+    private String telefono;
+    private String email;
+    private String clave;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getDni() {
-        return dni;
-    }
-
-    public void setDni(int dni) {
+    public Propietario(int idPropietario, String nombre, String apellido, String dni, String telefono, String email, String clave) {
+        this.idPropietario = idPropietario;
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.dni = dni;
+        this.telefono = telefono;
+        this.email = email;
+        this.clave = clave;
+    }
+
+    public Propietario() {
+    }
+
+    public int getIdPropietario() {
+        return idPropietario;
+    }
+
+    public void setIdPropietario(int idPropietario) {
+        this.idPropietario = idPropietario;
     }
 
     public String getNombre() {
@@ -44,6 +50,22 @@ public class Propietario implements Serializable {
         this.apellido = apellido;
     }
 
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -52,11 +74,11 @@ public class Propietario implements Serializable {
         this.email = email;
     }
 
-    public String getTel() {
-        return tel;
+    public String getClave() {
+        return clave;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 }

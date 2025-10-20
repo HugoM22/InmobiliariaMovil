@@ -20,7 +20,6 @@ public class login_Fragment extends Fragment {
     public static login_Fragment newInstance() {
         return new login_Fragment();
     }
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -34,14 +33,14 @@ public class login_Fragment extends Fragment {
 
         mViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
 
-        //  mensaje y lo muestra
+        // mensaje y lo muestra
         mViewModel.getMensaje().observe(getViewLifecycleOwner(), binding.tvMensaje::setText);
 
-        //  visibilidad del mensaje
+        // visibilidad del mensaje
         mViewModel.getMensajeVisible().observe(getViewLifecycleOwner(),
                 visible -> binding.tvMensaje.setVisibility(visible ? View.VISIBLE : View.GONE));
 
-        // Click del botón login
+        // botón login
         binding.btnLogin.setOnClickListener(v -> {
             mViewModel.Ingresar(
                     binding.etUsuario.getText().toString(),

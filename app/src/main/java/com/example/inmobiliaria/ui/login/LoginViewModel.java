@@ -37,7 +37,7 @@ public class LoginViewModel extends AndroidViewModel {
         mensajeVisible.postValue(false);
         mensaje.postValue("");
 
-        ApiClient.InmobiliariaService api = ApiClient.getApiInmobiliaria(getApplication());
+        ApiClient.InmobiliariaService api = ApiClient.getApiInmobiliaria();
         Call<String> llamada = api.obtenerLogin(usuario.trim(), pass);
 
         llamada.enqueue(new Callback<String>() {
@@ -48,7 +48,7 @@ public class LoginViewModel extends AndroidViewModel {
                     ApiClient.guardarToken(getApplication(), token);
                     mLogin.postValue(true);
                     mensaje.postValue("¡Bienvenido!");
-                    Intent i = new Intent(getApplication(), MainActivity.class); // o tu MenuRes si es la activity del drawer
+                    Intent i = new Intent(getApplication(), MainActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     getApplication().startActivity(i);
                 } else {
