@@ -13,7 +13,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.inmobiliaria.MainActivity;
 import com.example.inmobiliaria.request.ApiClient;
-import com.example.inmobiliaria.ui.home.HomeFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +33,12 @@ public class LoginViewModel extends AndroidViewModel {
     public LiveData<Boolean> getMensajeVisible() { return mensajeVisible; }
 
     public void Ingresar(String usuario, String pass) {
+        usuario = usuario == null?"": usuario.trim();
+        pass = pass == null?"": pass.trim();
+        if(usuario.isEmpty() || pass.isEmpty()){
+            Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_SHORT).show();
+            return;
+        }
         mensajeVisible.postValue(false);
         mensaje.postValue("");
 

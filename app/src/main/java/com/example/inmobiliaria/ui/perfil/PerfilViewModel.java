@@ -41,6 +41,18 @@ public class PerfilViewModel extends AndroidViewModel {
         mText.setValue("Guardar");
     }else{
         //validar campos
+        dni = dni ==null?"": dni.trim();
+        apellido = apellido == null? "": apellido.trim();
+        nombre = nombre == null? "": nombre.trim();
+        tel = tel == null? "": tel.trim();
+        email = email == null? "": email.trim();
+
+        if(dni.isEmpty() || apellido.isEmpty() || nombre.isEmpty() || tel.isEmpty() || email.isEmpty()){
+            Toast.makeText(getApplication(), "Debe completar todos los campos", Toast.LENGTH_SHORT).show();
+            return;
+        };
+
+
         Propietario p = new Propietario();
         p.setIdPropietario(mPropietario.getValue().getIdPropietario());
         p.setDni(dni);
