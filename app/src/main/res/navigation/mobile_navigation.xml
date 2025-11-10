@@ -37,14 +37,6 @@
             app:destination="@id/cargarInmuebleFragment" />
     </fragment>
 
-    <!-- CONTRATOS -->
-    <!-- LISTA (desde el Drawer) -->
-    <fragment
-        android:id="@+id/nav_contratos"
-        android:name="com.example.inmobiliaria.ui.contratos.ContratosFragment"
-        android:label="Contratos"
-        tools:layout="@layout/fragment_inmuebles" />
-
     <!-- DETALLE (abre con idInmueble) -->
     <fragment
         android:id="@+id/contratoFragment"

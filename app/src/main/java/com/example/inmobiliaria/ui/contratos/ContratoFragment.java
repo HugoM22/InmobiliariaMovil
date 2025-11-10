@@ -24,7 +24,6 @@ public class ContratoFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-        //fragment_contrato.xml
         binding = FragmentContratoBinding.inflate(inflater, container, false);
         vm = new ViewModelProvider(this).get(ContratoViewModel.class);
 
@@ -36,7 +35,6 @@ public class ContratoFragment extends Fragment {
 
         //btn
         binding.btnPagos.setOnClickListener(v -> vm.pedirPagos());
-
         //navegacion
         vm.getGoPagos().observe(getViewLifecycleOwner(), idContrato -> {
             if (idContrato == null) return;
