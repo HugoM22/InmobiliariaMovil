@@ -5,51 +5,81 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class Contrato implements Serializable {
-    @SerializedName("id") private int id;
-    @SerializedName("inmuebleId") private int inmuebleId;
-    @SerializedName("fechaInicio") private String fechaInicio; // igual
-    @SerializedName("fechaFin") private String fechaFin; //Fijarme el tema de fecha
-    @SerializedName("precioMensual") private double precioMensual;
-    @SerializedName("estado") private String estado;
+    private int idContrato;
+    private String fechaInicio;
+    private String fechaFinalizacion;
+    private double montoAlquiler;
+    private boolean estado;
+    private int idInquilino;
+    private int idInmueble;
+    private Inquilino inquilino;
+    private Inmuebles inmuebles;
 
-    public String getEstado() {
+    public Contrato() {
+    }
+
+    public int getIdContrato() {
+        return idContrato;
+    }
+
+    public void setIdContrato(int idContrato) {
+        this.idContrato = idContrato;
+    }
+
+    public Inmuebles getInmuebles() {
+        return inmuebles;
+    }
+
+    public void setInmuebles(Inmuebles inmuebles) {
+        this.inmuebles = inmuebles;
+    }
+
+    public Inquilino getInquilino() {
+        return inquilino;
+    }
+
+    public void setInquilino(Inquilino inquilino) {
+        this.inquilino = inquilino;
+    }
+
+    public int getIdInmueble() {
+        return idInmueble;
+    }
+
+    public void setIdInmueble(int idInmueble) {
+        this.idInmueble = idInmueble;
+    }
+
+    public int getIdInquilino() {
+        return idInquilino;
+    }
+
+    public void setIdInquilino(int idInquilino) {
+        this.idInquilino = idInquilino;
+    }
+
+    public boolean isEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(boolean estado) {
         this.estado = estado;
     }
 
-    public double getPrecioMensual() {
-        return precioMensual;
+    public double getMontoAlquiler() {
+        return montoAlquiler;
     }
 
-    public void setPrecioMensual(double precioMensual) {
-        this.precioMensual = precioMensual;
+    public void setMontoAlquiler(double montoAlquiler) {
+        this.montoAlquiler = montoAlquiler;
     }
 
-    public int getInmuebleId() {
-        return inmuebleId;
+    public String getFechaFinalizacion() {
+        return fechaFinalizacion;
     }
 
-    public void setInmuebleId(int inmuebleId) {
-        this.inmuebleId = inmuebleId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFechaFin() {
-        return fechaFin;
-    }
-
-    public void setFechaFin(String fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFechaFinalizacion(String fechaFinalizacion) {
+        this.fechaFinalizacion = fechaFinalizacion;
     }
 
     public String getFechaInicio() {

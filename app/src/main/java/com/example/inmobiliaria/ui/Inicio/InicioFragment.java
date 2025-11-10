@@ -39,8 +39,6 @@ public class InicioFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = new ViewModelProvider(this).get(InicioViewModel.class);
-
-        // SOLO ESTAS DOS LÍNEAS (sin if, sin extras)
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(new MapaActual());
@@ -50,7 +48,7 @@ public class InicioFragment extends Fragment {
         public void onMapReady(@NonNull GoogleMap googleMap) {
             mapa=googleMap;
             mapa.addMarker(new MarkerOptions().position(ULP)).setTitle("Inmobiliaria ULP");
-            mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(ULP, 16f));
+            mapa.moveCamera(CameraUpdateFactory.newLatLngZoom(ULP, 18f));
         }
     }
 

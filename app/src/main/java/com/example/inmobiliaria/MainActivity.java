@@ -30,30 +30,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(view ->
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null)
-                        .setAnchorView(R.id.fab).show()
-        );
+        //binding.appBarMain.fab.setOnClickListener(view ->
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                       //.setAction("Action", null)
+                       // .setAnchorView(R.id.fab).show()
+        //);
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_inicio, R.id.nav_perfil, R.id.nav_inmuebles,
-                R.id.nav_contratos, R.id.nav_pagos, R.id.nav_logout
+                R.id.nav_inicio, R.id.nav_perfil, R.id.nav_inmuebles, R.id.nav_logout
         ).setOpenableLayout(drawer).build();
+
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        // >>> Ir directo a INICIO si ya hay token (salta la pantalla de login)
+        // Ir directo a INICIO si ya hay token (salta la pantalla de login)
         if (!ApiClient.leerToken(this).isEmpty()) {
             navController.navigate(R.id.nav_inicio);
         }
 
-        // >>> Bloquear el drawer en la pantalla de login, desbloquear en el resto
+        // Bloquear el drawer en la pantalla de login, desbloquear en el resto
         navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
             if (destination.getId() == R.id.nav_login) {
                 drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);

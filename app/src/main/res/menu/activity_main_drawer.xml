@@ -17,14 +17,6 @@
             android:icon="@drawable/inmueble"
             android:title="Inmuebles" />
         <item
-            android:id="@+id/nav_contratos"
-            android:icon="@drawable/contratos"
-            android:title="Contratos" />
-        <item
-            android:id="@+id/nav_pagos"
-            android:icon="@drawable/pagos"
-            android:title="Pagos" />
-        <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/salida"
             android:title="Cerrar Sesión" />

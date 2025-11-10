@@ -5,37 +5,99 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/nav_login">
 
-    <fragment android:id="@+id/nav_login"
+    <!-- LOGIN / INICIO / PERFIL -->
+    <fragment
+        android:id="@+id/nav_login"
         android:name="com.example.inmobiliaria.ui.login.login_Fragment"
         android:label="Login" />
+
     <fragment
         android:id="@+id/nav_inicio"
         android:name="com.example.inmobiliaria.ui.Inicio.InicioFragment"
         android:label="Inicio"
         tools:layout="@layout/fragment_inicio" />
+
     <fragment
         android:id="@+id/nav_perfil"
         android:name="com.example.inmobiliaria.ui.perfil.PerfilFragment"
         android:label="Perfil"
         tools:layout="@layout/fragment_perfil" />
-    <fragment
-        android:id="@+id/nav_contratos"
-        android:name="com.example.inmobiliaria.ui.contratos.ContratosFragment"
-        android:label="Contratos"
-        tools:layout="@layout/fragment_contratos" />
+
+    <!-- INMUEBLES (lista) -->
     <fragment
         android:id="@+id/nav_inmuebles"
         android:name="com.example.inmobiliaria.ui.Inmuebles.InmueblesFragment"
         android:label="Inmuebles"
-        tools:layout="@layout/fragment_inmuebles" />
+        tools:layout="@layout/fragment_inmuebles" >
+        <action
+            android:id="@+id/action_nav_inmuebles_to_detalleInmuebleFragment"
+            app:destination="@id/detalleInmuebleFragment" />
+        <action
+            android:id="@+id/action_nav_inmuebles_to_cargarInmuebleFragment"
+            app:destination="@id/cargarInmuebleFragment" />
+    </fragment>
+
+    <!-- CONTRATOS -->
+    <!-- LISTA (desde el Drawer) -->
     <fragment
-        android:id="@+id/nav_pagos"
-        android:name="com.example.inmobiliaria.pagos.PagosFragment"
+        android:id="@+id/nav_contratos"
+        android:name="com.example.inmobiliaria.ui.contratos.ContratosFragment"
+        android:label="Contratos"
+        tools:layout="@layout/fragment_inmuebles" />
+
+    <!-- DETALLE (abre con idInmueble) -->
+    <fragment
+        android:id="@+id/contratoFragment"
+        android:name="com.example.inmobiliaria.ui.contratos.ContratoFragment"
+        android:label="Contrato"
+        tools:layout="@layout/fragment_contrato">
+        <argument
+            android:name="idInmueble"
+            app:argType="integer"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/pagoFragment"
+        android:name="com.example.inmobiliaria.ui.pago.pagoFragment"
         android:label="Pagos"
-        tools:layout="@layout/fragment_pagos" />
+        tools:layout="@layout/fragment_pagos">
+        <argument android:name="idContrato" app:argType="integer"/>
+    </fragment>
+
+    <!-- LOGOUT -->
     <fragment
         android:id="@+id/nav_logout"
         android:name="com.example.inmobiliaria.ui.logout.LogoutFragment"
         android:label="Cerrar Sesión"
         tools:layout="@layout/fragment_logout" />
+
+    <!-- DETALLE INMUEBLE / CARGAR INMUEBLE -->
+    <fragment
+        android:id="@+id/detalleInmuebleFragment"
+        android:name="com.example.inmobiliaria.ui.Inmuebles.DetalleInmuebleFragment"
+        android:label="Detalles Inmueble" >
+        <action
+            android:id="@+id/action_detalleInmuebleFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/cargarInmuebleFragment"
+        android:name="com.example.inmobiliaria.ui.Inmuebles.CargarInmuebleFragment"
+        android:label="Cargar Inmueble" >
+        <action
+            android:id="@+id/action_cargarInmuebleFragment_to_nav_inmuebles"
+            app:destination="@id/nav_inmuebles" />
+    </fragment>
+
+    <!-- CAMBIAR CLAVE -->
+    <fragment
+        android:id="@+id/cambiarClaveFragment"
+        android:name="com.example.inmobiliaria.ui.perfil.CambiarClaveFragment"
+        android:label="Cambiar Clave" >
+        <action
+            android:id="@+id/action_cambiarClaveFragment_to_nav_perfil"
+            app:destination="@id/nav_perfil" />
+    </fragment>
+
 </navigation>

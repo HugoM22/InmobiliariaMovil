@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Preview de foto -->
+        <ImageView
+            android:id="@+id/imgPreview"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/imagen"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Btn Agregar foto -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAgregarFoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Agregar foto"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/imgPreview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Dirección -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDireccion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Dirección"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/btnAgregarFoto"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Tipo -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTipo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Tipo (Casa, Depto, Local)"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tilDireccion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTipo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapWords"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Uso -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilUso"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Uso (Residencial / Comercial)"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tilTipo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Ambientes -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilAmbientes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Ambientes"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tilUso"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAmbientes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Superficie (entero, para matchear backend) -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilSuperficie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Superficie (m²)"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tilAmbientes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSuperficie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Precio -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilValor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Precio"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tilSuperficie"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etValor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Latitud -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLatitud"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Latitud"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tilValor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLatitud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Longitud -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLongitud"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Longitud "
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/tilLatitud"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etLongitud"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Disponible (por defecto true) -->
+        <CheckBox
+            android:id="@+id/cbDisponibleAlta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Disponible"
+            android:checked="true"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tilLongitud"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCargarInmueble"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Cargar inmueble"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/cbDisponibleAlta"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
