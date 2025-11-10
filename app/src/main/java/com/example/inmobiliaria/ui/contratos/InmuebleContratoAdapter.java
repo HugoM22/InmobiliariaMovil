@@ -23,17 +23,24 @@ import java.util.List;
 public class InmuebleContratoAdapter extends RecyclerView.Adapter<InmuebleContratoAdapter.VH> {
 
     private final List<Inmuebles> lista;
-    public InmuebleContratoAdapter(List<Inmuebles> l){ this.lista = l!=null? l : new ArrayList<>(); }
+    public InmuebleContratoAdapter(List<Inmuebles> l){
+        this.lista = l!=null? l : new ArrayList<>();
+    }
 
-    @NonNull @Override public VH onCreateViewHolder(@NonNull ViewGroup p, int v) {
+    @NonNull
+    @Override
+    public VH onCreateViewHolder(@NonNull ViewGroup p, int v) {
         return new VH(LayoutInflater.from(p.getContext()).inflate(R.layout.fragment_card, p, false));
     }
 
     @Override public void onBindViewHolder(@NonNull VH h, int pos) {
         Inmuebles i = lista.get(pos);
+
         h.tvDireccion.setText(i.getDireccion());
         h.tvTipo.setText(i.getTipo());
         h.tvPrecio.setText(String.valueOf(i.getValor()));
+
+
         Glide.with(h.itemView.getContext())
                 .load(ApiClient.URLBASE + i.getImagen())
                 .placeholder(R.drawable.ic_launcher_foreground)

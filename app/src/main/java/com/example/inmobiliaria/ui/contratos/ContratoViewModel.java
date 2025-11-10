@@ -18,7 +18,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ContratoViewModel extends AndroidViewModel {
-
+    // datos
     private final MutableLiveData<Contrato> contrato = new MutableLiveData<>();
     private final MutableLiveData<String> periodo   = new MutableLiveData<>("-");
     private final MutableLiveData<String> monto     = new MutableLiveData<>("-");
@@ -84,7 +84,9 @@ public class ContratoViewModel extends AndroidViewModel {
 
     public void pagosNavegado(){ goPagos.setValue(null); }
 
-    private String safe(String s){ return s==null? "" : s; }
+    private String safe(String s){
+        return s==null? "" : s;
+    }
 }
 
 

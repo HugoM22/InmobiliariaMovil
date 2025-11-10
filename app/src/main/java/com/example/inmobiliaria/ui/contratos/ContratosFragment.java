@@ -15,7 +15,7 @@ import com.example.inmobiliaria.databinding.FragmentInmueblesBinding;
 import com.example.inmobiliaria.modelo.Inmuebles;
 
 import java.util.List;
-
+//lista los inmuebles con contrato
 public class ContratosFragment extends Fragment {
     private FragmentInmueblesBinding binding;
     private ContratosViewModel vm;
@@ -26,9 +26,9 @@ public class ContratosFragment extends Fragment {
         vm = new ViewModelProvider(this).get(ContratosViewModel.class);
         binding = FragmentInmueblesBinding.inflate(inflater, container, false);
 
-        binding.fabAgregarInmueble.setVisibility(View.GONE); // fuera el "+" aquí
-
+        //gird card
         binding.rvListaInmueble.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+
         vm.getInmueblesConContrato().observe(getViewLifecycleOwner(), lista ->
                 binding.rvListaInmueble.setAdapter(new InmuebleContratoAdapter(lista)));
 

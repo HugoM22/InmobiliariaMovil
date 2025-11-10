@@ -14,25 +14,30 @@ import androidx.navigation.Navigation;
 import com.example.inmobiliaria.R;
 import com.example.inmobiliaria.databinding.FragmentContratoBinding;
 
-public class ContratoFragment extends Fragment {
 
+//detalle de un contrato de un inmueble
+public class ContratoFragment extends Fragment {
     private FragmentContratoBinding binding;
     private ContratoViewModel vm;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
+        //fragment_contrato.xml
         binding = FragmentContratoBinding.inflate(inflater, container, false);
         vm = new ViewModelProvider(this).get(ContratoViewModel.class);
 
-
+        //observes
         vm.getPeriodo().observe(getViewLifecycleOwner(), binding.tvPeriodo::setText);
         vm.getMonto().observe(getViewLifecycleOwner(), binding.tvMonto::setText);
         vm.getEstado().observe(getViewLifecycleOwner(), binding.tvEstado::setText);
         vm.getInquilino().observe(getViewLifecycleOwner(), binding.tvInquilino::setText);
 
+        //btn
         binding.btnPagos.setOnClickListener(v -> vm.pedirPagos());
 
+        //navegacion
         vm.getGoPagos().observe(getViewLifecycleOwner(), idContrato -> {
             if (idContrato == null) return;
             Bundle b = new Bundle(); b.putInt("idContrato", idContrato);
@@ -42,6 +47,7 @@ public class ContratoFragment extends Fragment {
         });
 
         vm.cargarContrato(getArguments());
+
         return binding.getRoot();
     }
 

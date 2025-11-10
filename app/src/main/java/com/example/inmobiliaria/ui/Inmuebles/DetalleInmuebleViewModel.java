@@ -23,7 +23,7 @@ public class DetalleInmuebleViewModel extends AndroidViewModel {
     private final MutableLiveData<Integer> irAContrato = new MutableLiveData<>();
 
     public LiveData<Inmuebles> getInmueble(){ return inmueble; }
-    public LiveData<Integer> getIrAContrato(){ return irAContrato; } // 👈 getter
+    public LiveData<Integer> getIrAContrato(){ return irAContrato; }
 
     public DetalleInmuebleViewModel(@NonNull Application application) { super(application); }
 
@@ -35,7 +35,7 @@ public class DetalleInmuebleViewModel extends AndroidViewModel {
     public void onVerContratoClick(){
         Inmuebles i = inmueble.getValue();
         if(i != null){
-            irAContrato.setValue(i.getIdInmueble()); // dispara navegación
+            irAContrato.setValue(i.getIdInmueble());
         }
     }
 
