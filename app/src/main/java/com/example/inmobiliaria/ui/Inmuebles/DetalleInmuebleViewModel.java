@@ -39,7 +39,6 @@ public class DetalleInmuebleViewModel extends AndroidViewModel {
         }
     }
 
-    // 👇 NUEVO: para “consumir” el evento y evitar re-navegar en rotaciones
     public void irAContratoConsumido(){ irAContrato.setValue(null); }
 
     public void actualizarInmueble(Boolean disponible){
